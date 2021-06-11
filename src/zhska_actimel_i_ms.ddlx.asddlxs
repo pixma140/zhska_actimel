@@ -1,0 +1,35 @@
+@Metadata.layer: #CUSTOMER
+@UI: { badge: { title: { label: 'Customer' } } }
+@UI: { headerInfo: { typeName: 'Movie', typeNamePlural: 'Movies', title: { type: #STANDARD, label: 'Title' } } }
+annotate view ZHSKA_ACTIMEL_I_MS with
+{
+
+  @UI.facet: [ { id:              'Movie',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Movie Data',
+                 position:        10 } ]
+
+  @UI.hidden: true
+  MovieGUID;
+
+  @UI.lineItem: [{ label: 'Titel' }]
+  @UI.identification: [{ label: 'Titel' }]
+  Title;
+
+  @UI.hidden: true
+  CustomerGUID;
+
+  @UI.lineItem: [{ label: 'Beschreibung' }]
+  @UI.identification: [{ label: 'Beschreibung' }]
+  Description;
+  
+  @UI.lineItem: [{ label: 'Release Date' }]
+  @UI.identification: [{ label: 'Release Date' }]
+  ReleaseDate;
+  
+  @UI.lineItem: [{ label: 'Adult Movie' }]
+  @UI.identification: [{ label: 'Adult Movie' }]
+  AdultMovie;
+
+}

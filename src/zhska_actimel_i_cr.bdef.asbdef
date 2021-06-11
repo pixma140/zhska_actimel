@@ -1,0 +1,73 @@
+managed implementation in class zbp_hska_actimel_i_cr unique;
+with draft;
+
+define behavior for ZHSKA_ACTIMEL_I_CR alias Customer
+persistent table zhska_actimel_cr
+draft table zhska_act_i_cr_d
+lock master
+total etag LastChangedAt
+etag master LocalLastChangedAt
+{
+
+  field ( readonly, numbering : managed ) CustomerGUID;
+  field ( mandatory ) CustomerID;
+  field ( readonly ) IsActive;
+
+  create;
+  update;
+  delete;
+
+  action activateCustomer result [1] $self; //( features : instance )
+
+  validation validateCustomerID on save { create; field CustomerID; }
+  association _Movies { create; with draft; }
+
+  mapping for zhska_actimel_cr
+  {
+    CustomerGUID = customer_guid;
+    CustomerID = customer_id;
+    Lastname = lastname;
+    Firstname = firstname;
+    Birthdate = birthdate;
+    RegistrationDate = reg_date;
+    IsActive = is_active;
+    LastChangedAt = last_changed_at;
+    LocalCreatedAt = local_created_at;
+    LocalCreatedBy = local_created_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LocalLastChangedBy = local_last_changed_by;
+  }
+
+}
+
+define behavior for ZHSKA_ACTIMEL_I_MS alias Movies
+persistent table zhska_actimel_ms
+draft table zhska_act_i_ms_d
+lock dependent by _Customer
+etag master LocalLastChangedAt
+{
+
+  field ( readonly ) CustomerGUID;
+
+  //create;
+  update;
+  delete;
+
+  field ( readonly, numbering : managed ) MovieGUID;
+  association _Customer { with draft; }
+
+  mapping for zhska_actimel_ms
+  {
+    MovieGUID = movie_guid;
+    Title = title;
+    Description = description;
+    ReleaseDate = rel_date;
+    AdultMovie = adult_movie;
+    CustomerGUID = customer_guid;
+    LastChangedAt = last_changed_at;
+    LocalCreatedAt = local_created_at;
+    LocalCreatedBy = local_created_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LocalLastChangedBy = local_last_changed_by;
+  }
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Sevice for ZHSKA_ACTIMEL_C_CR_ADMIN'
+define service ZHSKA_ACTIMEL_SD_CR_ADMIN {
+  expose ZHSKA_ACTIMEL_C_CR_ADMIN as Admin;
+}

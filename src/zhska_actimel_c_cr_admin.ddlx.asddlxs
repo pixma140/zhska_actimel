@@ -1,0 +1,16 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'Customer',
+        typeNamePlural: 'Customers',
+        title: { type: #STANDARD, value: 'Lastname', label: 'Customer Name' }
+    }
+}
+annotate view ZHSKA_ACTIMEL_C_CR_ADMIN with
+{
+  @UI.lineItem: [{ label: 'Konto Aktivieren'} ,
+                 { type: #FOR_ACTION, dataAction: 'activateCustomer', label: 'Konto Aktivieren'} ]
+  @UI.identification: [ { label: 'Konto Aktivieren' } ,
+                        { type: #FOR_ACTION, dataAction: 'activateCustomer', label: 'Konto Aktivieren'} ]
+  IsActive;
+}

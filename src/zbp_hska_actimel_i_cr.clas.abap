@@ -1,0 +1,5 @@
+CLASS zbp_hska_actimel_i_cr DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zhska_actimel_i_cr.
+ENDCLASS.
+
+CLASS zbp_hska_actimel_i_cr IMPLEMENTATION.
+ENDCLASS.

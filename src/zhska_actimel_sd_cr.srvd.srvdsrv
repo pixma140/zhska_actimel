@@ -1,0 +1,5 @@
+@EndUserText.label: 'Sevice for ZHSKA_ACTIMEL_I_CR'
+define service ZHSKA_ACTIMEL_SD_CR {
+  expose ZHSKA_ACTIMEL_C_CR as Customer;
+  expose ZHSKA_ACTIMEL_C_MS as Movies;
+}

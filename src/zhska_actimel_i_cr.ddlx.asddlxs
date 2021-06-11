@@ -1,0 +1,43 @@
+@Metadata.layer: #CUSTOMER
+annotate view ZHSKA_ACTIMEL_I_CR with
+{
+  @UI.facet: [ { id:              'Customer',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Customer Data',
+                 position:        10 } ,
+                 { id:            'Movie',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Movie Data',
+                 position:        20,
+                 targetElement:   '_Movies' } ]
+
+  @UI.hidden: true
+  CustomerGUID;
+
+  @UI.lineItem: [{ label: 'Customer ID' }]
+  @UI.identification: [{ label: 'Customer Number' }]
+  CustomerId;
+
+  @UI.lineItem: [{ label: 'Lastname' }]
+  @UI.identification: [{ label: 'Lastname' }]
+  Lastname;
+
+  @UI.lineItem: [{ label: 'Firstname' }]
+  @UI.identification: [{ label: 'Firstname' }]
+  Firstname;
+
+  @UI.lineItem: [{ label: 'Birthdate' }]
+  @UI.identification: [{ label: 'Birthdate' }]
+  Birthdate;
+
+  @UI.lineItem: [{ label: 'RegistrationDate' }]
+  @UI.identification: [{ label: 'Registrationdate' }]
+  RegistrationDate;
+
+  @UI.lineItem: [{ label: 'IsActive' }]
+  @UI.identification: [{ label: 'Customer Activity' }]
+  IsActive;
+
+}

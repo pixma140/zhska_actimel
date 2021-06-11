@@ -1,0 +1,21 @@
+projection;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZHSKA_ACTIMEL_C_CR_ADMIN alias Customer
+{
+  //  use create;
+  use update;
+  use delete;
+
+  use action activateCustomer;
+
+}
+
+define behavior for ZHSKA_ACTIMEL_C_MS_Admin alias Movies
+{
+
+  use delete;
+
+  use association _Customer;
+
+}
